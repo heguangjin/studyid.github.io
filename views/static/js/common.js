@@ -18,7 +18,6 @@ define(["jquery", "template", "cookie"], function($, template){
 
 		} 
     })
-
     // 头部退出按钮事件
     $("#out").click(function(){
 	    $.ajax({
@@ -32,7 +31,6 @@ define(["jquery", "template", "cookie"], function($, template){
 	        }
 	    })  
       })
-
 
     // 给侧边栏上的li添加事件,在点击的时候，让当前背景色变暗
     $(".navs>ul>li").click(function(){
@@ -58,14 +56,3 @@ define(["jquery", "template", "cookie"], function($, template){
 		}
 	})
 })
-
-
-
-
-	// NProgress.start();
-
-	// NProgress.done();
-
-	// $('.navs ul').prev('a').on('click', function () {
-	// 	$(this).next().slideToggle();
-	// });
