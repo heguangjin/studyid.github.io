@@ -25,7 +25,24 @@ define(["jquery", "template", "cookie"], function($, template){
 	        }
 	    })  
       })
+
+
+    // 给侧边栏上的li添加事件,在点击的时候，让当前背景色变暗
+    $(".navs>ul>li").click(function(){
+    		$(this).children("a").addClass("active");
+    		$(this).siblings().children("a").removeClass('active');
+    })
+
+    //让当前页面对应的导航栏菜单变暗
+	$(".navs a").each(function(i, v) {
+    	if($(v).attr("href") == location.pathname){
+        	$(v).addClass('active');
+        	// $(v).parent().parent().slideDown();
+   	 	}
+	});
 })
+
+
 
 
 	// NProgress.start();

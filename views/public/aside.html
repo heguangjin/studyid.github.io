@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <?php include "/views/public/css.html" ?>
+        <!-- <?php include "/views/public/css.html" ?> -->
     </head>
     <body>
     	<!-- 侧边栏 -->
@@ -14,67 +14,54 @@
 	        </div>
 	        <!-- 导航菜单 -->
 	       <div class="navs">
-    <ul class="list-unstyled">
-        <li>
-            <a href="/">
-                <i class="fa fa-dashboard"></i>
-                仪表盘
-            </a>
-        </li>
-        <li>
-            <a href="/teacher/list">
-                <i class="fa fa-mortar-board"></i>
-                讲师管理
-            </a>
-        </li>
+			    <ul class="list-unstyled">
+			        <li>
+			            <a href="/">
+			                <i class="fa fa-dashboard"></i>
+			                仪表盘
+			            </a>
+			        </li>
+			        <li>
+			            <a href="/teacher/list">
+			                <i class="fa fa-mortar-board"></i>
+			                讲师管理
+			            </a>
+			        </li>
 
-         <li>
-            <a href="/coursecategry/list">
-                <i class="fa fa-indent"></i>
-                分类管理
-            </a>
-        </li>
-        <li>
-            <a href="javascript:;">
-                <i class="fa fa-th"></i>
-                课程管理
-                <i class="arrow fa fa-angle-right"></i>
-            </a>
-            <ul class="list-unstyled">
-                <li>
-                    <a href="/course/add">
-                         课程添加
-                    </a>
-                </li>
-                <li>
-                    <a href="/course/list">
-                        课程列表
-                    </a>
-                </li>
-            </ul>
-        </li>
-
-       
-    </ul>
-</div>
-	    </div>
-	<!-- <?php include "/views/public/js.html" ?> -->
+			         <li>
+			            <a href="/coursecategry/list">
+			                <i class="fa fa-indent"></i>
+			                分类管理
+			            </a>
+			        </li>
+			        <li>
+			            <a href="javascript:;">
+			                <i class="fa fa-th"></i>
+			                课程管理
+			                <i class="arrow fa fa-angle-right"></i>
+			            </a>
+			            <ul class="list-unstyled">
+			                <li>
+			                    <a href="/course/add">
+			                         课程添加
+			                    </a>
+			                </li>
+			                <li>
+			                    <a href="/course/list">
+			                        课程列表
+			                    </a>
+			                </li>
+			            </ul>
+			        </li>      
+			    </ul>
+		</div>
+	</div>
 
 	<script type="text/template" id="profile-tpl">
         <div class="avatar img-circle">
             <img src="{{tc_avatar}}">
         </div>
         <h4>{{tc_name}}</h4>
-    </script>
-<!--     <script>
-        $(function(){
-        //从cookie中获取登录成功后存储的用户信息
-        var userInfo = JSON.parse($.cookie("userinfo"))
-        var html = template("profile-tpl", userInfo);
-        console.log($.cookie("userinfo"));
-        //将模板渲染到页面中刚才挖坑的地方
-        $("#userinfo").html(html);
-        })
-    </script>    -->     
+    </script> 
     </body>
 </html>
