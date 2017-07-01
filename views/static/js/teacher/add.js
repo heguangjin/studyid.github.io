@@ -1,5 +1,5 @@
 define(["jquery","template","getUrl","form"],function($,template,obj){
-
+	
 	var id = obj.getUrl().id;
 	if(id){
 		console.log(id);

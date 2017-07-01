@@ -6,6 +6,12 @@ require.config({
      	"cookie": "assets/jquery-cookie/jquery.cookie",
      	"template": "assets/artTemplate/template",
      	"bootstrap": "assets/bootstrap/js/bootstrap.min",
-     	"getUrl":"static/js/getUrl"
+     	"getUrl":"static/js/getUrl",
+     	"nprogress": "assets/nprogress/nprogress"
+     },
+     shim:{
+     	"bootstrap":{
+     		deps:["jquery"]
+     	}
      }
 });

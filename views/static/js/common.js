@@ -1,4 +1,16 @@
-define(["jquery", "template", "cookie"], function($, template){
+define(["jquery", "template","nprogress","cookie"], function($,template,NProgress){
+
+	NProgress.start();
+	NProgress.done();
+
+	$(document).ajaxStart(function(){
+		NProgress.start();
+	})
+
+	$(document).ajaxStop(function(){
+		NProgress.done();
+	})
+
 	// 侧边栏数据请求
 	$(function(){
 		//判断当前页是不是在登录页面，如果是就不做如下的操作
