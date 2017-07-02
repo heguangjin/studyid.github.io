@@ -5,6 +5,7 @@ require.config({
      	"form": "assets/jquery-form/jquery.form",
      	"cookie": "assets/jquery-cookie/jquery.cookie",
      	"template": "assets/artTemplate/template",
-     	"bootstrap": "assets/bootstrap/js/bootstrap.min"
+     	"bootstrap": "assets/bootstrap/js/bootstrap.min",
+     	"datepicker":"assets/bootstrap-datepicker/locales/bootstrap-datepicker.min"
      }
 });
