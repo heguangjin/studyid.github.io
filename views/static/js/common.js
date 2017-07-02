@@ -1,8 +1,9 @@
 define(["jquery", "template","nprogress","cookie"], function($,template,NProgress){
-
+	// 进度条（下面的两行代码的作用是只要有页面的加载就显示进度条）
 	NProgress.start();
 	NProgress.done();
 
+	// 而下面的两行$(document).ajaxStar代表的是只要有ajax请求就显示进度条
 	$(document).ajaxStart(function(){
 		NProgress.start();
 	})
