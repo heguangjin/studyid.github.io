@@ -10,6 +10,7 @@ require.config({
      	"nprogress": "assets/nprogress/nprogress",
      	"datepicker":"assets/bootstrap-datepicker/js/bootstrap-datepicker.min",
      	"datepicker-zh":"assets/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min",
+          "jquery-validate":"assets/jquery-validate/jquery-validate.min"
      },
      shim:{
      	"bootstrap":{
@@ -17,6 +18,9 @@ require.config({
      	},
      	"datepicker-zh":{
      		deps:["datepicker"]
-     	}
+     	},
+          "jquery-validate":{
+               deps:["jquery"]
+          }
      }
 });

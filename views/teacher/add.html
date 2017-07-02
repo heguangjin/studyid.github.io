@@ -81,26 +81,29 @@
             <div class="form-group">
                 <label for="" class="col-xs-3 control-label">姓名</label>
                 <div class="col-xs-4">
-                    <input type="text" name ="tc_name" class="form-control input-sm" placeholder="讲师名称" value="{{tc_name}}">
+                    <input type="text" name ="tc_name" class="form-control input-sm" placeholder="讲师名称" value="{{tc_name}}" data-required data-conditional="isBeauty" data-description="tcname" data-describedby="msgfortcname">
                 </div>
+                <label id="msgfortcname" class="control-label"></label>
             </div>
             {{if !tc_id}}
             <div class="form-group">
                 <label for="" class="col-xs-3 control-label">密码</label>
                 <div class="col-xs-4">
-                    <input type="password" name="tc_pass" class="form-control input-sm">
+                    <input type="password" name="tc_pass" class="form-control input-sm" data-required data-description="tc_pass" data-describedby="msgfortc_pass">
                 </div>
+                <label id="msgfortc_pass" class="control-label"></label>
             </div>
             {{/if}}
             <div class="form-group">
                 <label for="" class="col-xs-3 control-label">入职时间</label>
                 <div class="col-xs-4">
-                    <input type="text" id ="tc_join_date" name="tc_join_date" class="form-control input-sm" value = "{{tc_join_date}}">
+                    <input type="text" id ="tc_join_date" name="tc_join_date" class="form-control input-sm" value = "{{tc_join_date}}" data-required data-description="tc_join_dat" data-describedby="msgfortc_join_dat">
                 </div>
+                <label id="msgfortc_join_dat" class="control-label"></label>
             </div>
             <div class="form-group">
                 <label for="" class="col-xs-3 control-label">类型</label>
-                <div class="col-xs-2">
+                <div class="col-xs-4">
                     <select name="tc_type" class="form-control input-sm">
                         <option value="1" {{if tc_type == 1}}selected{{/if}}>讲师</option>
                         <option value="0" {{if tc_type == 0}}selected{{/if}}>管理员</option>

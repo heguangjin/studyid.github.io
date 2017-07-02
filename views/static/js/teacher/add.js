@@ -1,4 +1,4 @@
-define(["jquery","template","getUrl","datepicker","form","datepicker","datepicker-zh"],function($,template,obj,datepicker){
+define(["jquery","template","getUrl","jquery-validate","form","datepicker","datepicker-zh","datepicker"],function($,template,obj){
 	
 	var id = obj.getUrl().id;
 	if(id){
@@ -17,6 +17,7 @@ define(["jquery","template","getUrl","datepicker","form","datepicker","datepicke
 					data.result.type = "edit";
 					var html = template("teacher-tpl",data.result);
 					$(".teacher").html(html);
+					// 给文本添加日期插件 datepicker
 					$("input[name=tc_join_date]").datepicker({
 						format: 'yyyy-mm-dd',
 						language: 'zh-CN'
@@ -35,39 +36,96 @@ define(["jquery","template","getUrl","datepicker","form","datepicker","datepicke
 			type: "add"
 		});
 		$(".teacher").html(html);
+		// 给文本添加日期插件 datepicker
 		$("input[name=tc_join_date]").datepicker({
 			format: 'yyyy-mm-dd',
 			language: 'zh-CN'
 		});
 	}
-	// $("input[name=tc_join_date]").datepicker({
-	// 	format: 'yyyy-mm-dd',
-	// 	language: 'zh-CN'
-	// });
+
+	var type = $("#btnSave").data("type");
+	console.log($("#btnSave"));
+	console.log(type);
 	// 给保存按钮添加事件
-	$(".teacher").on("click","#btnSave",function(){
-		console.log(4564);
-		var type = $(this).data("type");
-		console.log(type);
-		var url = "";
-		if(type == "edit"){
-			url = "/api/teacher/update";
-		}else{
-			url = "/api/teacher/add";
-		}
-		//使用jquery.form插件将表单进行异步提交
-		$("#teacherform").ajaxSubmit({
-			url: url,
-			type: "post",
-			success: function(data){
-				if(data.code == 200){
-					location.href = "/teacher/list"
-				}
+	// $(".teacher").on("click","#btnSave",function(){
+	// 	console.log(4564);
+	// 	var type = $(this).data("type");
+	// 	console.log(type);
+	// 	var url = "";
+	// 	if(type == "edit"){
+	// 		url = "/api/teacher/update";
+	// 	}else{
+	// 		url = "/api/teacher/add";
+	// 	}
+	// 	//使用jquery.form插件将表单进行异步提交
+	// 	$("#teacherform").ajaxSubmit({
+	// 		url: url,
+	// 		type: "post",
+	// 		success: function(data){
+	// 			if(data.code == 200){
+	// 				// location.href = "/teacher/list"
+	// 			}
+	// 		}
+	// 	});
+
+	// 	return false;
+	// })
+
+
+	$("#teacherform").validate({
+		// sendForm用来设置，表单验证通过之后，是否自动提交表单。默认是true。
+		sendForm: false,
+		// onBlur设置失去焦点的时候，是否要进行验证   默认值false
+		onBlur: true,
+		// onKeyup设置按键的时候，是否要进行验证   默认值false
+		onKeyup: true,
+		description: {
+			"tcname": {
+				required: "请输入用户名",
+			},
+			"tc_pass":{
+				required:"请输入密码",
+			},
+			"tc_join_dat":{
+				required:"请输入入职日期",
 			}
-		});
+		},
+		// 当任意表单元素不通过校验的时候，就会调用该方法
+		eachInvalidField: function(){
+			this.parent().parent().addClass("has-error").removeClass("has-success");
+			this.parent().next().removeClass("hide");
+		},
+		// 当任意表单元素通过校验的时候，就会调用该方法
+		eachValidField: function(){
+			this.parent().parent().addClass("has-success").removeClass("has-error");
+		},
+		//当整个表单通过验证的时候，会调用该回调方法,再去发送请求把数据更新掉
+		valid: function(){
+			console.log("验证通过了");
+			var type = $("#btnSave").data("type");
+			console.log(type1);
+			var url = "";
+			if(type == "edit"){
+				url = "/api/teacher/update";
+			}else{
+				url = "/api/teacher/add";
+			}
+			//使用jquery.form插件将表单进行异步提交
+			$("#teacherform").ajaxSubmit({
+				url: url,
+				type: "post",
+				success: function(data){
+					if(data.code == 200){
+						location.href = "/teacher/list";
+					}
+				}
+			});
+		},
 
-		return false;
+		invalid: function(){
+			console.log("验证不通过");
+		}
+
 	})
-
 
 })
