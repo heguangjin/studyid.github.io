@@ -1,4 +1,4 @@
-define(["jquery","template","getUrl","form"],function($,template,obj){
+define(["jquery","template","getUrl","datepicker","form","datepicker","datepicker-zh"],function($,template,obj,datepicker){
 	
 	var id = obj.getUrl().id;
 	if(id){
@@ -16,7 +16,11 @@ define(["jquery","template","getUrl","form"],function($,template,obj){
 					data.result.text = "保存";
 					data.result.type = "edit";
 					var html = template("teacher-tpl",data.result);
-					$(".teacher").html(html)
+					$(".teacher").html(html);
+					$("input[name=tc_join_date]").datepicker({
+						format: 'yyyy-mm-dd',
+						language: 'zh-CN'
+					});
 				}
 
 
@@ -31,7 +35,15 @@ define(["jquery","template","getUrl","form"],function($,template,obj){
 			type: "add"
 		});
 		$(".teacher").html(html);
+		$("input[name=tc_join_date]").datepicker({
+			format: 'yyyy-mm-dd',
+			language: 'zh-CN'
+		});
 	}
+	// $("input[name=tc_join_date]").datepicker({
+	// 	format: 'yyyy-mm-dd',
+	// 	language: 'zh-CN'
+	// });
 	// 给保存按钮添加事件
 	$(".teacher").on("click","#btnSave",function(){
 		console.log(4564);
