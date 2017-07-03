@@ -103,7 +103,6 @@ define(["jquery","template","getUrl","jquery-validate","form","datepicker","date
 		valid: function(){
 			console.log("验证通过了");
 			var type = $("#btnSave").data("type");
-			console.log(type1);
 			var url = "";
 			if(type == "edit"){
 				url = "/api/teacher/update";
