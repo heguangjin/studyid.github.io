@@ -22,7 +22,10 @@ require.config({
           // 富文本插件
           "ckeditor":"assets/ckeditor/ckeditor",
           // 省级联动插件（省市县）需要配合region.json文件使用
-          "region":"assets/jquery-region/jquery.region"
+          "region":"assets/jquery-region/jquery.region",
+          // 图片上传插件
+          "uploadify":"assets/uploadify/jquery.uploadify"
+          
      },
      shim:{
      	"bootstrap":{
@@ -36,6 +39,9 @@ require.config({
           },
           "ckeditor":{
                exports:"CKEDITOR"
+          },
+          "uploadify":{
+               deps:["jquery"]
           }
      }
 });
