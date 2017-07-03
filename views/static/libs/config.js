@@ -2,11 +2,11 @@ require.config({
      baseUrl: "/views",
      paths: {
      	"jquery": "assets/jquery/jquery.min",
-          // 表单ajax提交插件
+          // 表单$("#teacherform").ajaxSubmit({})提交插件
      	"form": "assets/jquery-form/jquery.form",
           // cookie插件
      	"cookie": "assets/jquery-cookie/jquery.cookie",
-          // 模板插件$("#teacherform").ajaxSubmit({})
+          // 模板插件
      	"template": "assets/artTemplate/template",
      	"bootstrap": "assets/bootstrap/js/bootstrap.min",
           // 获取地址栏信息公共方法
