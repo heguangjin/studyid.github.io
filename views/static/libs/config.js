@@ -26,7 +26,8 @@ require.config({
           // 图片上传插件
           "uploadify":"assets/uploadify/jquery.uploadify",
           // 图片裁切插件
-          "jcrop": "assets/Jcrop/js/Jcrop"
+          "jcrop": "assets/Jcrop/js/Jcrop",
+          "echarts": "assets/echarts/echarts.min"
           
      },
      shim:{
