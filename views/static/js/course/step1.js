@@ -1,4 +1,4 @@
-define(["jquery","template","ckeditor","getUrl"],function($,template,CKEDITOR,obj){
+define(["jquery","template","ckeditor","getUrl","form"],function($,template,CKEDITOR,obj){
 	var cs_id = obj.getUrl().id;
 	console.log(cs_id);
 	$.ajax({
@@ -12,9 +12,25 @@ define(["jquery","template","ckeditor","getUrl"],function($,template,CKEDITOR,ob
 			if(data.code == 200){
 				var html = template("coursestep1-tpl",data.result);
 				$(".steps").html(html);
-				CKEDITOR.replace("textarea");
+				// CKEDITOR.instances["brief"].updateElement()
+				CKEDITOR.replace("brief");
 
 			}
 		}
+	})
+
+	$(".steps").on("submit", "form", function(){
+
+		$(this).ajaxSubmit({
+			url: "/api/course/update/basic",
+			type: "post",
+			success: function(data){
+				if(data.code == 200){
+					location.href = "/course/step2?id=" + data.result.cs_id;
+				}
+			}
+		})
+
+		return false;
 	})
 })
